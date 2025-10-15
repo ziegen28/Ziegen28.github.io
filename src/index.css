@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 240 15% 6%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 12% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 12% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 265 89% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 190 90% 55%;
+    --secondary-foreground: 240 15% 6%;
+
+    --muted: 240 10% 20%;
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 280 85% 70%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 10% 20%;
+    --input: 240 10% 15%;
+    --ring: 265 89% 65%;
+
+    --radius: 1rem;
+
+    --gradient-primary: linear-gradient(135deg, hsl(265 89% 65%), hsl(280 85% 70%));
+    --gradient-secondary: linear-gradient(135deg, hsl(190 90% 55%), hsl(265 89% 65%));
+    --gradient-accent: linear-gradient(135deg, hsl(280 85% 70%), hsl(190 90% 55%));
+    --gradient-bg: linear-gradient(180deg, hsl(240 15% 6%), hsl(240 20% 10%));
+
+    --glow-primary: 0 0 40px hsl(265 89% 65% / 0.3);
+    --glow-secondary: 0 0 40px hsl(190 90% 55% / 0.3);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: var(--gradient-bg);
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-card/40 backdrop-blur-xl border border-border/50;
+  }
+
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+
+  .glow-secondary {
+    box-shadow: var(--glow-secondary);
+  }
+
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
